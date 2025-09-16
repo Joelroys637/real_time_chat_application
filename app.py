@@ -23,7 +23,7 @@ password=st.text_input("Password:")
 def view_data():
     conn = sqlite3.connect('chat.db')
     c = conn.cursor()
-    table=st.text_input("Enter a table name:")
+    table=st.text_input("Enter a room ID:")
     c.execute('SELECT * FROM '+table)
     data = c.fetchall()
     df = pd.DataFrame(data, columns=[desc[0] for desc in c.description])
